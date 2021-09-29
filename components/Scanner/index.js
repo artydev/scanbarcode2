@@ -16,7 +16,12 @@ class _Scanner {
   showHistory = function () {};
 
   startApp = function () {
+    sb(header);
+    div('Headder');
+    unselectBase();
+    selectBase(scanner);
     SetupControls(this);
+    unselectBase();
   };
 }
 
