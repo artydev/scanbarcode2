@@ -7,44 +7,34 @@
     <script src="https://efpage.de/DML/DML_homepage/lib/DML-min.js"></script>
     <title>Document</title>
     <style>
-      body,
-      h1 {
+      body {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+        overflow: hidden;
       }
+
       :root {
-        --width-video: calc(100vw - 10px);
-        --ratio: calc(3 / 4);
-        --height-video: calc(var(--ratio) * var(--width-video));
+        --width-video: 90vw;
       }
 
       #video {
         position: relative;
         top: 0px;
         width: var(--width-video);
-        height: var(--height-video);
         margin: 0 auto;
         overflow: hidden;
-        display: block;
-        max-width: 460px;
-        max-height: 345px;
+        border: 5px solid white;
+        max-width: 640px;
       }
       video {
         width: var(--width-video);
-        height: var(--height-video);
+        overflow: hidden;
         margin: 0 auto;
         margin-bottom: 0;
-        max-width: 460px;
-        max-height: 345px;
+        max-width: 640px;
       }
       canvas.drawingBuffer {
-        margin-top: 0;
-        width: var(--width-video);
-        height: var(--height-video);
-        background-color: rgba(255, 202, 180, 0.27);
-        position: relative;
-        top: calc(-1 * var(--height-video));
       }
     </style>
   </head>

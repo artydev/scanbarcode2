@@ -4,10 +4,10 @@ const usb = unselectBase;
 
 let styleBar = `
     position : absolute;
-    bottom: 1px;
+    bottom: 0px;
     width: 100%;
     display:flex;
-    line-height: 40px;
+    line-height: 32px;
     justify-content: space-around;
     background: deeppink;
 `;
