@@ -6,7 +6,7 @@ const scannerDiv = elementById('scanner');
 const Video = (function () {
   function onInitSuccess() {
     const controls = Scanner.controls;
-    controls.btnCamera.style.stroke = 'white';
+    controls.btnCamera.style.stroke = 'red';
     Quagga.start();
   }
 
