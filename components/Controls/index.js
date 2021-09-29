@@ -9,7 +9,7 @@ let styleBar = `
     display:flex;
     line-height: 32px;
     justify-content: space-around;
-    border-top: 1px solid black;
+    border-top: 1px solid #00739b;
     line-height: 32px;
     padding-top: 10px;  
 `;
