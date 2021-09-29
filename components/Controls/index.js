@@ -9,7 +9,9 @@ let styleBar = `
     display:flex;
     line-height: 32px;
     justify-content: space-around;
-  
+    border-top: 1px solid black;
+    line-height: 32px;
+    padding-top: 10px;  
 `;
 const SetupControls = (scanner) => {
   sb(div('', { style: styleBar }));

@@ -17,7 +17,7 @@ class _Scanner {
 
   startApp = function () {
     sb(header);
-    div('Headder');
+    h2('CodeBarre Scanner');
     unselectBase();
     selectBase(scanner);
     SetupControls(this);
