@@ -11,8 +11,8 @@ const Video = (function () {
   }
 
   function onDetected(r) {
-    window.location.href = `https://si.dgccrf.rie.gouv.fr/codebarre/code/${r.codeResult.code}`;
-    //alert(r.codeResult.code);
+    //window.location.href = `https://si.dgccrf.rie.gouv.fr/codebarre/code/${r.codeResult.code}`;
+    alert(r.codeResult.code);
   }
 
   function _launchCamera() {
