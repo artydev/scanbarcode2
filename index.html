@@ -1,1 +1,56 @@
-<div id="app"></div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://efpage.de/DML/DML_homepage/lib/DML-min.js"></script>
+    <title>Document</title>
+    <style>
+      body,
+      h1 {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      :root {
+        --width-video: calc(100vw - 10px);
+        --ratio: calc(3 / 4);
+        --height-video: calc(var(--ratio) * var(--width-video));
+      }
+
+      #video {
+        position: relative;
+        top: 0px;
+        width: var(--width-video);
+        height: var(--height-video);
+        margin: 0 auto;
+        overflow: hidden;
+        display: block;
+        max-width: 460px;
+        max-height: 345px;
+      }
+      video {
+        width: var(--width-video);
+        height: var(--height-video);
+        margin: 0 auto;
+        margin-bottom: 0;
+        max-width: 460px;
+        max-height: 345px;
+      }
+      canvas.drawingBuffer {
+        margin-top: 0;
+        width: var(--width-video);
+        height: var(--height-video);
+        background-color: rgba(255, 202, 180, 0.27);
+        position: relative;
+        top: calc(-1 * var(--height-video));
+      }
+    </style>
+  </head>
+  <body>
+    <h1 style="text-align: center">Scanner</h1>
+    <div id="scanner"></div>
+    <script type="module" src="index.js"></script>
+  </body>
+</html>
