@@ -1,21 +1,30 @@
-import Quagga from 'quagga';
-import Scanner from '../Scanner';
-
+import Quagga from '../../_snowpack/pkg/quagga.js';
+import Scanner from '../Scanner/index.js';
+import codeHandler from '../../services/codehandler.js';
 const scannerDiv = elementById('scanner');
+
+let results = [];
 
 const Video = (function () {
   function onInitSuccess() {
-    let video = document.getElementsByTagName('video')[0];
-    alert(video.getBoundingClientRect().height);
     const controls = Scanner.controls;
     controls.btnCamera.style.stroke = 'red';
+
     Quagga.start();
   }
 
   function onDetected(r) {
-    //window.location.href = `https://si.dgccrf.rie.gouv.fr/codebarre/code/${r.codeResult.code}`;
-    alert(r.codeResult.code);
+    results.push(r.codeResult);
+    if (results.length > 10) {
+      console.log(results);
+      codeHandler.getCodeFromResults(results);
+      results = [];
+      Quagga.stop();
+    }
+    window.location.href = `https://si.dgccrf.rie.gouv.fr/codebarre/code/${r.codeResult.code}`;
   }
+
+  Quagga.onProcessed(function (result) {});
 
   function _launchCamera() {
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
@@ -27,8 +36,16 @@ const Video = (function () {
             target: document.querySelector('#video'),
             multiple: false,
           },
-          numOfWorkers: 1,
-          locate: true,
+          numOfWorkers: navigator.hardwareConcurrency,
+          locate: false,
+
+          area: {
+            top: '40%',
+            right: '40%',
+            left: '40%',
+            bottom: '40%',
+          },
+
           decoder: {
             readers: ['ean_reader'],
           },
@@ -47,8 +64,9 @@ const Video = (function () {
   }
 
   function launchCamera() {
+    Scanner.video = div('', { id: 'video' });
     sb(scannerDiv);
-    sb(div('', { id: 'video' }));
+    sb(Scanner.video);
     _launchCamera();
     unselectBase();
     unselectBase();
